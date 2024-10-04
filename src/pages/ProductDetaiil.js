@@ -13,7 +13,7 @@ const ProductDetaiil = () => {
     let response = await fetch(url);
     let data = await response.json();
 
-    console.log("data", data, product.size);
+    console.log("data", data);
     setProduct(data);
   };
   useEffect(() => {
@@ -35,14 +35,11 @@ const ProductDetaiil = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              {Array.isArray(product?.size) &&
-                product.size.map((size, idx) => {
-                  return (
-                    <Dropdown.Item key={idx} eventKey={idx}>
-                      {size}
-                    </Dropdown.Item>
-                  );
-                })}
+              {product.size.map((size, idx)=>{
+                return  <Dropdown.Item key={idx} eventKey={idx}>
+                {size}
+              </Dropdown.Item>
+              })}
             </Dropdown.Menu>
           </Dropdown>
 
